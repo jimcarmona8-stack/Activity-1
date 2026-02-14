@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #ff4e50, #fc913a);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        padding: 40px 60px;
+        border-radius: 20px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        animation: fadeIn 2s ease;
+        z-index: 2;
+    }
+
+    .card h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .card p {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    button {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        background: white;
+        color: #ff4e50;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background: #ffe6e6;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: white;
+        transform: rotate(45deg);
+        animation: float 6s infinite ease-in;
+        opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: -10px;
+        top: 0;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+        50% { opacity: 0.8; }
+        100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+
+    @media (max-width: 500px) {
+        .card {
+            padding: 30px;
+        }
+        .card h1 {
+            font-size: 28px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Happy Valentine's Day ❤️</h1>
+    <p>You make my world brighter and my heart fuller every day.</p>
+    <button onclick="showLove()">Click for a Surprise 💌</button>
+</div>
+
+<script>
+function showLove() {
+    alert("💖 I love you more than words can say! 💖");
+}
+
+/* Create Floating Hearts */
+for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    heart.style.opacity = Math.random();
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
